@@ -8,7 +8,7 @@
 
 > Repositorio original creado por [Phoenix](https://github.com/phx/nucc)
 > Traduccion por [theJuan](https://github.com/theJuan1112)
-- [English Version](/README.md)
+- [English Version](https://github.com/theJuan1112/nucc/blob/master/README.en.md)
 
 **Ultima Actualización: Marzo 23, 2020**
 
