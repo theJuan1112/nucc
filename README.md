@@ -6,9 +6,9 @@
 
 # NUCC Computación Distribuida para la Ayuda en la Investigación del COVID-19
 
-> Repositorio original creado por [Phoenix](https://github.com/phx/nucc)
+> Repositorio original creado por [Phoenix](https://github.com/phx)
 > Traduccion por [theJuan](https://github.com/theJuan1112)
-- [English Version](https://github.com/theJuan1112/nucc/blob/master/README.en.md)
+- [English Version](https://github.com/phx/nucc)
 
 **Ultima Actualización: Marzo 23, 2020**
 
@@ -207,7 +207,7 @@ Este se puede usar en el comando de Linux/MacOS al comienzo de este documento y 
 
 ## Modo Docker Swarm
 
-Puedes utilizar Docker Swarm to lanzar una gran cantidad de clientes, por ejemplo atravez de un cluster que estes usando para computacion BOINC. Primero comienza el swarm para crear una red,
+Puedes utilizar Docker Swarm para lanzar una gran cantidad de clientes, por ejemplo atravez de un cluster que estes usando para computacion BOINC. Primero comienza el swarm para crear una red,
 
 ```sh
 docker swarm init
@@ -216,7 +216,7 @@ docker network create -d overlay --attachable boinc
 
 Si quieres, puedes conectar otros nodos a tu swarm ejecutando el comando apropiado `docker swarm join` on nodos trabajadores como se indico anteriormente.
 
-Despues lanza tu clientes:
+Despues lanza tus clientes:
 
 ```sh
 docker service create \
@@ -250,5 +250,5 @@ Docker Swarm no es compatible con el modo `pid=host`. Como resultado, las config
 
 ## Sobre el National Upcycled Computing Collective (NUCC)
 
-[The National Upcycled Computing Collective, Inc.](http://nuccinc.org) es una Organizacion Sin Animo de Lucro (501(c)(3)) categorizada como un Instituto de Investagacion en las areas de Ciencias Computacionales, Tecnologia & Ingenieria(EIN 82-1177433), en California, USA, como lo determina el IRS (Internal Revenue Service). Nuestra mision es encontrar nuevos usos para la tecnologia, 
+[The National Upcycled Computing Collective, Inc.](http://nuccinc.org) es una Organizacion Sin Animo de Lucro (501(c)(3)) categorizada como un Instituto de Investigacion en las areas de Ciencias Computacionales, Tecnologia & Ingenieria(EIN 82-1177433), en California, USA, como lo determina el IRS (Internal Revenue Service). Nuestra mision es encontrar nuevos usos para la tecnologia, 
 extendiendo así los ciclos de vida de estos con la intención de reutilizar los dispositivos electrónicos de manera responsable. Para mas informacion, visita [https://www.nuccinc.org/about/](https://www.nuccinc.org/about/).
