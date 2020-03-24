@@ -10,7 +10,7 @@
 > Traduccion por [theJuan](https://github.com/theJuan1112)
 - [English Version](https://github.com/phx/nucc)
 
-**Ultima Actualización: Marzo 23, 2020**
+**Ultima Actualización: Marzo 24, 2020**
 
 Únete al [National Upcycled Computing Collective (NUCC)](https://www.nuccinc.org/) en un esfuerzo colaborativo para combinar nuestros recursos computacionales para ayudar en la investigación del COVID-19.
 Este proyecto se basa en [la configuracion predeterminada de Docker creado por BOINC](https://github.com/BOINC/boinc-client-docker). La diferencia es que no hay que registrar ninguna cuenta y no comparte información personal. Solamente es utilizada para conectarse automáticamente al proyecto en curso de NUCC en [Rosseta@home](https://boinc.bakerlab.org/), que es un equipo de investigación el cual esta activamente procesando cargas especificas de el COVID-19.
