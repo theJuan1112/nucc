@@ -94,12 +94,13 @@ Cuando Docker Desktop es abierto por primera vez, necesitaras cerrar sesión e i
 
 ### Si NO tienes Docker Instalado:
 
-- Debian
-- Raspbian
+- Debian 8+
+- Raspbian 8+
 - Ubuntu
+- Fedora 30+
 - Kali 2018+ (basado en Debian Stretch)
 - Arch
-- MacOS
+- MacOS 10.8+
 
 ```
 git clone http://github.com/theJuan1112/nucc.git
@@ -109,12 +110,11 @@ cd nucc
 
 *Si el script crea un error despues de instalar Docker, ejecuta otra vez otro Shell que reconozca tu usuario como miembro del grupo `docker`*
 
-#### Plataformas basadas en RPM, por favor ver en la [Documentacion Oficial de Docker](https://docs.docker.com/install/) para instalaciones de Docker en tu sistema Operativo particular:
+**CentoOS:**
 
-Estoy trabajando en estos momentos en construir estos distros en una[Instalacion Casi Universal de Docker](https://github.com/phx/dockerinstall) que es usada por [`quickstart.sh`](quickstart.sh).
+Estoy trabajando en estos momentos en agregar soporte para CentOS[Instalacion Casi Universal de Docker](https://github.com/phx/dockerinstall) que es usada por [`quickstart.sh`](quickstart.sh).
 
-- [CentOS](https://docs.docker.com/install/linux/docker-ce/centos/)
-- [Fedora](https://docs.docker.com/install/linux/docker-ce/fedora/)
+Por ahora, sigue los pasos en [CentOS](https://docs.docker.com/install/linux/docker-ce/centos/) para instalar Docker
 
 ### Si ya tienes Docker instalado:
 
