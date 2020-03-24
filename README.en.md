@@ -84,7 +84,9 @@ When Docker Desktop is launched for the first time, you will need to log out and
 
 ## BSD Jail Installation
 
-Documentation on this is in progress.  It does work 100% correctly, and documentation will also include FreeNAS-specific instructions.
+**[Documentation for FreeBSD (specifically, FreeNAS) can be found in this blog post](https://bookandcode.com/nuccbsd)**.
+
+If you have any trouble, reach out to me on Discord (if you know me), submit an issue, or leave a comment on the post.
 
 ---
 
@@ -107,7 +109,7 @@ cd nucc
 
 *If the script errors out after installing Docker, run it again in a new login shell that recognizes your user as a member of the `docker` group, and you should be squared away.*
 
-#### RPM-based platforms, please refer to [the official Docker documentation](https://docs.docker.com/install/) for installing Docker for your particular OS:
+#### RPM-based distros, please refer to [the official Docker documentation](https://docs.docker.com/install/) for installing Docker for your particular OS:
 
 I am currently working to build these distros into [The Almost Universal Docker Installer](https://github.com/phx/dockerinstall), which is used by [`quickstart.sh`](quickstart.sh).
 
@@ -241,8 +243,8 @@ Docker Swarm does not support `pid=host` mode. As a result, client settings rela
 
 ## Updates:
 
-- BSD/FreeNAS documentation forthcoming.
 - Documentation on remotely monitoring and managing workloads is in the works.
+- Will be adding RPM-based distros to [The Almost Universal Docker Installer](https://github.com/phx/dockerinstall) very shortly.
 
 ---
 

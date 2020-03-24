@@ -86,7 +86,7 @@ Cuando Docker Desktop es abierto por primera vez, necesitaras cerrar sesión e i
 
 ## Instalacion BSD Jail
 
-Documentación en progreso. Funciona 100% correctamente y la documentacion va a incluir instrucciones para Free-NAS.
+**[Documentación para FreeBSD (específicamente, FreeNAS) se puede encontrar en el este blog post (INGLES)](https://bookandcode.com/nuccbsd)**
 
 ---
 
@@ -243,7 +243,6 @@ Docker Swarm no es compatible con el modo `pid=host`. Como resultado, las config
 
 ## Actualizaciones:
 
-- Documentacion para BSD/FreeNAS proximamente.
 - Documentacion para monitorear remotamente y manejar cargas de trabajo proximamente.
 
 ---
