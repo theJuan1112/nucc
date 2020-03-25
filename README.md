@@ -10,7 +10,7 @@
 > Traduccion por [theJuan](https://github.com/theJuan1112)
 - [English Version](https://github.com/phx/nucc)
 
-**Ultima Actualización: Marzo 24, 2020**
+**Ultima Actualización: Marzo 25, 2020**
 
 Únete al [National Upcycled Computing Collective (NUCC)](https://www.nuccinc.org/) en un esfuerzo colaborativo para combinar nuestros recursos computacionales para ayudar en la investigación del COVID-19.
 Este proyecto se basa en [la configuracion predeterminada de Docker creado por BOINC](https://github.com/BOINC/boinc-client-docker). La diferencia es que no hay que registrar ninguna cuenta y no comparte información personal. Solamente es utilizada para conectarse automáticamente al proyecto en curso de NUCC en [Rosseta@home](https://boinc.bakerlab.org/), que es un equipo de investigación el cual esta activamente procesando cargas especificas de el COVID-19.
@@ -101,6 +101,7 @@ Cuando Docker Desktop es abierto por primera vez, necesitaras cerrar sesión e i
 - Kali 2018+ (basado en Debian Stretch)
 - Arch
 - MacOS 10.8+
+- CentOS/RHEL/Amazon Linux
 
 ```
 git clone http://github.com/theJuan1112/nucc.git
@@ -110,12 +111,6 @@ cd nucc
 
 *Si el script crea un error despues de instalar Docker, ejecuta otra vez otro Shell que reconozca tu usuario como miembro del grupo `docker`*
 
-**CentoOS:**
-
-Estoy trabajando en estos momentos en agregar soporte para CentOS[Instalacion Casi Universal de Docker](https://github.com/phx/dockerinstall) que es usada por [`quickstart.sh`](quickstart.sh).
-
-Por ahora, sigue los pasos en [CentOS](https://docs.docker.com/install/linux/docker-ce/centos/) para instalar Docker
-
 ### Si ya tienes Docker instalado:
 
 ```
@@ -124,6 +119,19 @@ cd nucc
 ./quickstart.sh
 ```
 
+---
+
+#### Consideraciones del Firewall:
+
+Si estas usando `firewalld` o `ufw` o algo parecido, necesitaras que crear una regla para la interfaz `docker0` en el puerto `31416`
+
+Alternativamente puedes deshabilitar el servicio ejecutando `systemctl disable firewalld` (etc.), y reiniciando el systema.
+
+Esto es necesario para resolver DNS dentro del contenedor
+
+Si ya instalaste y tienes un contenedor usando `quickstart.sh`, solo implementa las reglas del firewall y ejecuta `docker restart boinc`
+
+Si desabilitas el firewall completamente, el contenedor `boinc` deberia funcionar immediatamente despues de reiniciar y procesara las cargas de trabajo satisfactoriamente.
 ---
 
 ## Arquitecturas y Etiquetas compatibles
