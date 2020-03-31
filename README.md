@@ -10,27 +10,14 @@
 > Traduccion por [theJuan](https://github.com/theJuan1112)
 - [English Version](https://github.com/phx/nucc)
 
-**Ultima Actualización: Marzo 28, 2020**
+**Ultima Actualización: Marzo 30, 2020**
 
 Únete al [National Upcycled Computing Collective (NUCC)](https://www.nuccinc.org/) en un esfuerzo colaborativo para combinar nuestros recursos computacionales para ayudar en la investigación del COVID-19.
 Este proyecto se basa en [la configuracion predeterminada de Docker creado por BOINC](https://github.com/BOINC/boinc-client-docker). La diferencia es que no hay que registrar ninguna cuenta y no comparte información personal. Solamente es utilizada para conectarse automáticamente al proyecto en curso de NUCC en [Rosseta@home](https://boinc.bakerlab.org/), que es un equipo de investigación el cual esta activamente procesando cargas especificas de el COVID-19.
 
 ---
 
-### La forma mas rapida y facil de contribuir si ya tienes BOINC instalado:
-- Windows:
-  - `boinccmd --project_attach http://boinc.bakerlab.org/rosetta/ 2108683_fdd846588bee255b50901b8b678d52ec`
-- Cualquier otro sistema operativo:
-  - `boinccmd --attach_project http://boinc.bakerlab.org/rosetta/ 2108683_fdd846588bee255b50901b8b678d52ec`
-
-### La forma mas rapida y facil de contribuir si ya tienes Docker instalado es la siguiente:
-
-Copiar y pegar la siguiente linea en tu terminal para comenzar inmediatamente en MacOS o Linux:
-
-`docker run -d --restart always --name boinc -p 31416 -v "${HOME}/.boinc:/var/lib/boinc" -e BOINC_GUI_RPC_PASSWORD="123" -e BOINC_CMD_LINE_OPTIONS="--allow_remote_gui_rpc --attach_project http://boinc.bakerlab.org/rosetta/ 2108683_fdd846588bee255b50901b8b678d52ec" boinc/client:baseimage-alpine`
-
-
-### The fastest and easiest way to contribute if you already have BOINC installed natively:
+### La forma mas rapida y facil de contribuir si ya tienes BOINC instalado nativamente:
 - Windows:
   - `C:\PROGRA~1\BOINC\boinccmd.exe --project_attach http://boinc.bakerlab.org/rosetta/ 2108683_fdd846588bee255b50901b8b678d52ec`
 - MacOS:
@@ -38,9 +25,16 @@ Copiar y pegar la siguiente linea en tu terminal para comenzar inmediatamente en
 - Linux:
   - `boinccmd --project_attach http://boinc.bakerlab.org/rosetta/ 2108683_fdd846588bee255b50901b8b678d52ec`
 
-Note: If you don't have things configured exactly right, you may have to pass the password located in `gui_rpc_passwd.cfg` in the command line to `boinccmd`.
+NOTA: Si no tienes todo configurado exactamente bien, depronto tendrás que pasar la clave en `gui_rpc_passwd.cfg` en la linea de comando para `boinccmd`.
 
-Example: `boinccmd --passwd <yourpassword> --project_attach http://boinc.bakerlab.org/rosetta/ 2108683_fdd846588bee255b50901b8b678d52ec`
+Ejemplo: `boinccmd --passwd <yourpassword> --project_attach http://boinc.bakerlab.org/rosetta/ 2108683_fdd846588bee255b50901b8b678d52ec`
+
+### La forma mas rapida y facil de contribuir si ya tienes Docker instalado es la siguiente:
+
+Copiar y pegar la siguiente linea en tu terminal para comenzar inmediatamente en MacOS o Linux:
+
+`docker run -d --restart always --name boinc -p 31416 -v "${HOME}/.boinc:/var/lib/boinc" -e BOINC_GUI_RPC_PASSWORD="123" -e BOINC_CMD_LINE_OPTIONS="--allow_remote_gui_rpc --attach_project http://boinc.bakerlab.org/rosetta/ 2108683_fdd846588bee255b50901b8b678d52ec" boinc/client:baseimage-alpine`
+
 
 ---
 
@@ -139,12 +133,6 @@ git clone http://github.com/theJuan1112/nucc.git
 cd nucc
 ./quickstart.sh
 ```
-
-NUCC will have additional projects in the future with [Folding@home](https://foldingathome.org/) and [GPUGRID](https://gpugrid.net/),
-and we will continue to update this page with instructions on how to connect to those particular projects.
-
-However, in the meantime, [Rosetta@home](https://boinc.bakerlab.org/) remains the best possible solution for continuously receiving
-and processing workloads that specifically target COVID-19 in particular, which is why NUCC has chosen the current solution.   
 
 #### Consideraciones del Firewall:
 
@@ -367,214 +355,9 @@ docker exec boinc boinccmd --project http://boinc.bakerlab.org/rosetta/ resume
 
 ---
 
-<<<<<<< HEAD
 ## Actualizaciones:
 
 - Documentacion para monitorear remotamente y manejar cargas de trabajo proximamente.
-=======
-## Viewing and Managing Workloads
-
-You have a couple of good options here:
-
-- Best Option: [BOINCTASKS](https://efmer.com/download-boinctasks/)
-- View tasks from the native BOINC Manager
-
-*For BSD, there is also the `boinc_curses` TUI application, which allows you to view local tasks, and for various Linux distros, there is the `boinctui` package, which I have personally never tried,
-but imagine it is probably similar to `boinc_curses` for BSD.*
-
-**For basic tasks, you can refer to [Boinc Commands and Shortcuts](#boinc-commands-and-shortcuts).**
-
-### BOINCTASKS ([Download Here](https://efmer.com/download-boinctasks/))
-
-This is honestly the best option, especially if you are running BOINC from multiple machines on the same network.  The thing I like most about it is that it doesn't require a native BOINC installation
-if all you need is the **BOINC Manager**, like if you are running the *BOINC Client* via Docker or from a different machine on the network.  One of the best features is its ability to scan your network
-for BOINC clients and automatically add them to the management interface.  BOINCTASKS is the only option if you want to manage multiple clients from a GUI interface without having to disconnect between
-viewing each individual client.  It's a Windows program, but is FULLY-COMPATIBLE with *nix hosts via [Wine](https://www.winehq.org/).  It literally took me less than a minute to get it fully-installed
-on my Ubuntu laptop, after which I was able to see all the clients on my local network running BOINC, and remotely manage their tasks.
-
-### Native BOINC Manager ([Official Installation Instructions](https://boinc.berkeley.edu/wiki/Installing_BOINC))
-
-If you are running BOINC via Docker, it's a little redundant to download BOINC natively, but you can do so if you want to view and manage the tasks running from a GUI interface.
-
-- Launch BOINC
-- If the "Select a Project" pops up, just cancel out of it if you're connecting to a remote BOINC client or Docker container.
-- `File > Select Computer`
-  - Enter the computer's IP/hostname and password from `gui_rpc_auth.cfg`, and Click "OK".
-
-If you are running BOINC via Docker on your local machine, the IP address will be `127.0.0.1`.  Otherwise, enter the IP of the **HOST** that Docker is running on (not the IP of the container
-from the `docker0` interface).  By specifying `-p 31416` in the `docker run` command, we mapped the communication port used by the BOINC client in the Docker container to the host machine.
-
-`Boingmgr` should have no trouble connecting to any Docker container on the network unless prohibited by firewall rules on operating systems such as CentOS or Fedora,
-in which case, you should consult the [#firewall-caveats](Firewall Caveats) mini-section for more information.
-
----
-
-## BOINC Commands and Shortcuts
-
-Two very good `boinccmd` references:
-
-- [https://boinc.berkeley.edu/wiki/Boinccmd_tool](https://boinc.berkeley.edu/wiki/Boinccmd_tool)
-- [https://www.systutorials.com/docs/linux/man/1-boinccmd/](https://www.systutorials.com/docs/linux/man/1-boinccmd/)
-
-#### Acces the shell on the Docker container:
-
-`docker exec -it boinc /bin/sh`
-
-This will allow you to be on the machine and run `boinccmd` commands directly.
-
-#### Execute a specific `boinccmd` command inside local docker container directly from the host:
-
-`docker exec boinc boinccmd --command-arguments-here`
-
-#### Attach to NUCC's Rosetta@home Project (this is done automatically in the quickstart scripts):
-
-**Native Installation:**
-
-`boinccmd --project_attach http://boinc.bakerlab.org/rosetta/ 2108683_fdd846588bee255b50901b8b678d52ec`
-
-**Docker Installation:**
-
-`docker exec [container-name] boinccmd --attach_project http://boinc.bakerlab.org/rosetta/ 2108683_fdd846588bee255b50901b8b678d52ec`
-
-### For simplicity, the commands below will be listed as local commands. This means 1 of 3 things:
-
-- You should execute them as-is if running the BOINC client on the host
-- You should execute them as-is if you have already exec'd into the Docker container
-- You should prepend them with `docker exec [container-name] ` if running them against the Docker container with the BOINC client installed.
-  - If BOINC was installed via Docker and one of the quickstart scripts, the container name is `boinc`.
-  - Example: `docker exec -it boinc boinccmd --get_state`
-
-#### Request no more work after current Rosetta@home tasks finish:
-
-`boinccmd --project http://boinc.bakerlab.org/rosetta/ nomorework`
-
-This is a "graceful stop" and could take up to 24 hours for workloads to completely stop processing:
-
-Later, you can substitue `nomorework` with `allowmorework` to start pulling tasks again
-
-#### Suspend all tasks for the Rosetta@home project:
-
-`boinccmd --project http://boinc.bakerlab.org/rosetta/ suspend`
-
-#### Resume all tasks for the Rosetta@home project:
-
-`boinccmd --project http://boinc.bakerlab.org/rosetta/ resume`
-
-#### Stop or Start the BOINC Docker container:
-
-`docker stop boinc` and `docker start boinc`
-
-This is not recommended, as your current tasks will be abandoned.
-
-**Best practices would be as follows:**
-
-```sh
-docker exec boinc boinccmd --project http://boinc.bakerlab.org/rosetta/ suspend
-docker stop boinc
-docker start boinc
-docker exec boinc boinccmd --project http://boinc.bakerlab.org/rosetta/ resume
-```
-
-### Docker Shortcut Function (`nuccd`):
-
-This will probably become part of the install script in the future, but as of now, this can make things much easier for Docker-based installations.
-
-Just add this function to a dotfile like `~/.bash_functions` and source it in your `~/.bashrc` or `~/.bash_profile`:
-
-```sh
-nuccd() {
-  if [[ $1 = "allowmorework" ]]; then
-    docker exec boinc boinccmd --project http://boinc.bakerlab.org/rosetta/ allowmorework
-  elif [[ $1 = "nomorework" ]]; then
-    docker exec boinc boinccmd --project http://boinc.bakerlab.org/rosetta/ nomorework
-  elif [[ $1 = "suspend" ]]; then
-    docker exec boinc boinccmd --project http://boinc.bakerlab.org/rosetta/ suspend
-  elif [[ $1 = "resume" ]]; then
-    docker exec boinc boinccmd --project http://boinc.bakerlab.org/rosetta/ resume
-  elif [[ $1 = "stop" ]]; then
-    docker stop boinc
-  elif [[ $1 = "start" ]]; then
-    docker start boinc
-  elif [[ $1 = "remove" ]]; then
-    docker stop boinc 2>/dev/null
-    docker rm boinc
-  elif [[ $1 = "uninstall" ]]; then
-    docker stop boinc 2>/dev/null
-    docker rm boinc 2>/dev/null
-    docker images | grep boinc | awk '{print $3}' | xargs docker rmi 2>/dev/null
-  else
-    echo '
-USAGE: nuccd [OPTIONS]
-
-allowmorework
-nomorwork
-suspend
-resume
-start
-stop
-remove
-uninstall
-'
-  fi
-}
-```
-
-Alternately, you can use it as a script and save it somewhere in your `$PATH` like `/usr/local/bin`:
-
-- `sudo vi /usr/local/bin/nuccd`
-- Add the following:
-
-```sh
-#!/bin/bash
-
-if [[ $1 = "allowmorework" ]]; then
-  docker exec boinc boinccmd --project http://boinc.bakerlab.org/rosetta/ allowmorework
-elif [[ $1 = "nomorework" ]]; then
-  docker exec boinc boinccmd --project http://boinc.bakerlab.org/rosetta/ nomorework
-elif [[ $1 = "suspend" ]]; then
-  docker exec boinc boinccmd --project http://boinc.bakerlab.org/rosetta/ suspend
-elif [[ $1 = "resume" ]]; then
-  docker exec boinc boinccmd --project http://boinc.bakerlab.org/rosetta/ resume
-elif [[ $1 = "stop" ]]; then
-  docker stop boinc
-elif [[ $1 = "start" ]]; then
-  docker start boinc
-elif [[ $1 = "remove" ]]; then
-  docker stop boinc 2>/dev/null
-  docker rm boinc
-elif [[ $1 = "uninstall" ]]; then
-  docker stop boinc 2>/dev/null
-  docker rm boinc 2>/dev/null
-  docker images | grep boinc | awk '{print $3}' | xargs docker rmi 2>/dev/null
-else
-  echo '
-USAGE: nuccd [OPTIONS]
-
-allowmorework
-nomorwork
-suspend
-resume
-start
-stop
-remove
-uninstall
-'
-fi
-```
-
-- Save the file and figure out how to exit `vi`
-- `sudo chmod +x /usr/local/bin/nuccd`
-
----
-
-## Updates
-
-- Added native installation support for MacOS in `quickstart.sh`
-- Made some clarifications and edits to the [BSD Documentation](https://bookandcode.com/nuccbsd/)
-- Made some clarifications on the Folding@home status and why NUCC is currently using Rosetta@home for COVID-19 research
-- Working on adding `nuccd` support to quickstart scripts.
-- Automated native installation for Linux coming soon.
->>>>>>> upstream/master
 
 ---
 
