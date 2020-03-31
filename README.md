@@ -6,13 +6,9 @@
 
 # NUCC Computación Distribuida para la Ayuda en la Investigación del COVID-19
 
-<<<<<<< HEAD
 > Repositorio original creado por [Phoenix](https://github.com/phx)
 > Traduccion por [theJuan](https://github.com/theJuan1112)
 - [English Version](https://github.com/phx/nucc)
-=======
-**Latest Update: March 30, 2020**
->>>>>>> upstream/master
 
 **Ultima Actualización: Marzo 28, 2020**
 
@@ -48,7 +44,6 @@ Example: `boinccmd --passwd <yourpassword> --project_attach http://boinc.bakerla
 
 ---
 
-<<<<<<< HEAD
 ## Contenido
 
 - [Instalación Nativa de Windows](#instalaci%c3%b3n-nativa-de-windows)
@@ -65,63 +60,6 @@ Example: `boinccmd --passwd <yourpassword> --project_attach http://boinc.bakerla
 ---
 
 ## Instalación Nativa de Windows:
-=======
-**Contents**
-- [Automated Linux/MacOS Docker-based Installation](#automated-linux-and-macos-docker-installation)
-- [Automated Windows Native Installation](#automated-windows-native-installation)
-- [Automated Windows Docker-based Installation](#windows-docker-installation)
-- [Automated MacOS Native Installation](#automated-macos-native-installation)
-- [BSD Jail Installation](#bsd-jail-installation)
-- [Manual Installation](#manual-installation)
-- [Docker Supported Architectures and Tags](#docker-supported-architectures-and-tags)
-- [Docker Swarm Mode](#docker-swarm-mode)
-- [Viewing and Managing Workloads](#viewing-and-managing-workloads)
-- [BOINC Commands and Shortcuts](#boinc-commands-and-shortcuts)
-- [Updates](#updates)
-- [About NUCC](#about-the-national-upcycled-computing-collective)
-
----
-
-## Automated Linux and MacOS Docker Installation
-
-If Docker is not already installed, the [`quickstart.sh`](quickstart.sh) script will install Docker via [The Almost Universal Docker Installer](https://github.com/phx/dockerinstall),
-then pull [the official boinc/client image from DockerHub](https://hub.docker.com/r/boinc/client) ([`base-alpine`](https://github.com/BOINC/boinc-client-docker/blob/master/Dockerfile.base-alpine) by default).
-
-You can run a custom image by running `IMG=boinc/client[tag-name] ./quickstart.sh` (see [Supported Architectures and Tags](#docker-supported-architectures-and-tags)).
-
-- MacOS 10.8+
-- Ubuntu
-- Debian 8+
-- Raspbian 8+
-- CentOS/RHEL/Amazon Linux
-- Fedora 30+
-- Kali 2018+ (based on Debian Stretch)
-- Arch
-
-```
-git clone http://github.com/phx/nucc.git
-cd nucc
-./quickstart.sh
-```
-
-*If the script errors out after installing Docker, run it again in a new login shell that recognizes your user as a member of the `docker` group, and you should be squared away.*
-
-#### Firewall Caveats:
-
-If you are running `firewalld` or `ufw` or something like that, you will need to either create a rule for the `docker0` interface on port `31416`.
-
-Alternately, you can disable the service altogether by running `systemctl disable firewalld` (etc.), and then rebooting.
-
-This is necessary to be able to resolve DNS inside the containers.
-
-If you have already installed and spun up a container via `quickstart.sh`, just implement the firewall rules and run `docker restart boinc`.
-
-If you disable the firewall completely, the `boinc` container should spin up immediately after reboot and will be able to process workloads successfully.
-
----
-
-## Automated Windows Native Installation:
->>>>>>> upstream/master
 
 Descarga el archivo zip del repositorio, descomprimirlo, y ejecuta `quickstart.bat --native --attach` desde la Consola CMD en modo Administrador.
 
@@ -141,13 +79,7 @@ Cierra la ventana, confirma, y presiona enter para continuar ejecutando el scrip
 
 Este se va a conectar automáticamente al proyecto correcto y comenzara a procesar las cargas de trabajo inmediatamente.
 
-<<<<<<< HEAD
 ## Instalacion de Docker en Windows:
-=======
-I find it easier to view and manage by going to `View > Advanced`, as things appear to be more organized.
-
-## Windows Docker Installation:
->>>>>>> upstream/master
 
 Descarga el archivo zip del repositorio, descomprimirlo, y ejecuta `quickstart.bat` desde la Consola CMD en modo Administrador.
 
@@ -173,27 +105,12 @@ Cuando Docker Desktop es abierto por primera vez, necesitaras cerrar sesión e i
 
 ---
 
-<<<<<<< HEAD
 ## Instalacion BSD Jail
-=======
-## Automated MacOS Native Installation
-
-```
-git clone https://github.com/phx/nucc
-cd nucc
-./quickstart.sh --native
-```
-
----
-
-## BSD Jail Installation
->>>>>>> upstream/master
 
 **[Documentación para FreeBSD (específicamente, FreeNAS) se puede encontrar en el este blog post (INGLES)](https://bookandcode.com/nuccbsd)**
 
 ---
 
-<<<<<<< HEAD
 ## Instalacion de Docker en Linux y MacOS
 
 ### Si NO tienes Docker Instalado:
@@ -222,32 +139,6 @@ git clone http://github.com/theJuan1112/nucc.git
 cd nucc
 ./quickstart.sh
 ```
-=======
-## Manual Installation
-
-Follow [the official instructions](https://boinc.berkeley.edu/wiki/Installing_BOINC) to install BOINC locally.
-
-After starting BOINC, cancel out of the "Select a Project" window if it pops up, and run the command below to start choochin':
-
-`boinccmd --project_attach http://boinc.bakerlab.org/rosetta/ 2108683_fdd846588bee255b50901b8b678d52ec`
-
-If running on Linux or MacOS, you may find it easier to go to `View > Advanced` to monitor things.
-
-**Note:** `boinccmd` is typically only in your `$PATH` on Linux. 
-
----
-
-## Docker Supported Architectures and Tags
-
-Not all of the BOINC images below are compatible with the COVID-19 Rosetta@home workloads.  To be perfectly clear, Rosetta@home
-is only handing out ***processor-focused*** workloads.  This means if you want to take advantage of your beefy GPU, you will be better off
-focusing on something like [Folding@home](https://foldingathome.org/), which can take advantage of that.  Also, Rosetta@home is not currently
-supporting ARM-based workloads.
-
-The current issue with Folding@home is that the number of servers sending data back is causing a DDOS on their systems as they are receiving the folded results.
-As a result of this, the work units aren't finishing, and no work can be handed out.  They have engaged several companies to help, but this is the primary reason
-for NUCC choosing to work with Rosetta@home for the COVID-19 research in particular, as they are handing out 100% COVID-19-specific work units immediately and efficiently.
->>>>>>> upstream/master
 
 NUCC will have additional projects in the future with [Folding@home](https://foldingathome.org/) and [GPUGRID](https://gpugrid.net/),
 and we will continue to update this page with instructions on how to connect to those particular projects.
@@ -255,7 +146,6 @@ and we will continue to update this page with instructions on how to connect to 
 However, in the meantime, [Rosetta@home](https://boinc.bakerlab.org/) remains the best possible solution for continuously receiving
 and processing workloads that specifically target COVID-19 in particular, which is why NUCC has chosen the current solution.   
 
-<<<<<<< HEAD
 #### Consideraciones del Firewall:
 
 Si estas usando `firewalld` o `ufw` o algo parecido, necesitaras que crear una regla para la interfaz `docker0` en el puerto `31416`
@@ -274,22 +164,6 @@ Si desabilitas el firewall completamente, el contenedor `boinc` deberia funciona
 Puedes especializar la imagen de `boinc/client` con cualquiera de las siguientes etiquetas para usar una version de contenedor especializada.
 
 Este se puede usar en el comando de Linux/MacOS al comienzo de este documento y pasarlo como la variable de entorno `$IMG` para `quickstart.sh`
-=======
-BOINC's default image is `baseimage-ubuntu` or `latest`, which uses `glibc`, however NUCC's default image from the quickstart scripts
-is `baseimage-alpine`, which uses `musl` instead.  If this causes any issues with future projects, we will change to the Ubuntu base image,
-but for now, Alpine is working perfectly with our Rosetta@home workloads, and the image itself is much leaner, which was our reason for choosing
-it as our default. 
-
-If you wish, you can specify the `boinc/client` image with any of the tags below in order to use one of the specialized versions instead of `baseimage-alpine`.
-
-These can be used in the Linux/MacOS one-liner at the top of this page or passed as the `$IMG` environment variable to `quickstart.sh`:
-- `IMG=boinc/client:[image-name] ./quickstart.sh`
-
-They can also be passed as a command line argument to to `quickstart.bat`:
-- `quickstart.bat --docker --image boinc/client:[image-name]`
-
----
->>>>>>> upstream/master
 
 ### x86-64
 | Tag | Info |
@@ -364,11 +238,7 @@ They can also be passed as a command line argument to to `quickstart.bat`:
 
 ---
 
-<<<<<<< HEAD
 ## Modo Docker Swarm
-=======
-## Docker Swarm Mode
->>>>>>> upstream/master
 
 Puedes utilizar Docker Swarm para lanzar una gran cantidad de clientes, por ejemplo atravez de un cluster que estes usando para computacion BOINC. Primero comienza el swarm para crear una red,
 
